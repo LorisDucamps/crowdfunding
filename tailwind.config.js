@@ -1,17 +1,33 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+export default {
   content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        white: 'hsl(0, 0%, 100%)',
+        black: 'hsl(0, 0%, 0%)',
+        'light-black': 'hsla(0, 0%, 0%, 0.5)',
+        'medium-black': 'hsla(0, 0%, 0%, 0.15)',
+        lotion: 'hsl(0, 0%, 98%)',
+        verdigris: 'hsl(176, 50%, 47%)',
+        'deep-verdigris': 'hsl(176, 72%, 28%)',
+        'light-deep-verdigris': 'hsla(176, 72%, 28%, 0.05)',
+        'sonic-silver': 'hsl(0, 0%, 48%)',
+        'dark-charcoal': 'hsl(0, 0%, 18%)',
+        'light-dark-charcoal': 'hsla(0, 0%, 18%, 0.05)',
+        'medium-dark-charcoal': 'hsla(0, 0%, 18%, 0.10)',
+        'philippine-silver': 'hsl(0, 0%, 69%)',
+        'dark-silver': 'hsl(0, 0%, 44%)',
       },
+    },
+    fontFamily: {
+      commissionerRegular: ['commissionerRegular'],
+      commissionerMedium: ['commissionerMedium'],
+      commissionerBold: ['commissionerBold']
     },
   },
   plugins: [],
-};
+}
