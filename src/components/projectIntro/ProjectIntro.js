@@ -21,7 +21,7 @@ export default function ProjectIntro() {
                 width="56"
             />
 
-            <h1 className="text-xl font-bold text-center sm:text-[28px]">
+            <h1 className="text-xl font-commissionerBold text-center sm:text-[28px]">
                 Mastercraft Bamboo Monitor Riser
             </h1>
 
@@ -39,6 +39,7 @@ export default function ProjectIntro() {
                 />
                 <Button
                     variant="secondary"
+                    size="big"
                     icon
                     wording={isBookmarked ? "Bookmarked" : "Bookmark"}
                     className={isBookmarked ? "bg-light-deep-verdigris" : ""}

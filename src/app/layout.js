@@ -27,7 +27,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="fr">
       <body
-        className="bg-lotion antialiased"
+        className="bg-lotion antialiased font-commissionerRegular"
       >
         <Header/>
         {children}

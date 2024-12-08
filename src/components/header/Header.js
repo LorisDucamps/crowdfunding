@@ -20,7 +20,7 @@ export default function Header() {
                     href={href}
                     className={twMerge(
                         "block",
-                        isMobile ? "text-lg p-6" : "text-white text-[13px] font-medium hover:underline"
+                        isMobile ? "text-lg p-6" : "text-white text-[13px] font-commissionerMedium hover:underline"
                     )}
                 >
                     {label}
