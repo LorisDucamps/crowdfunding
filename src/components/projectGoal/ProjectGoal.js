@@ -1,8 +1,8 @@
 'use client'
 import React from "react";
 import { twMerge } from "tailwind-merge";
-import ProgressBar from "../ProgressBar/ProgressBar";
 import Card from "../card/Card";
+import ProgressBar from "../progressbar/ProgressBar";
 
 export default function ProjectGoal({ totalAmount, backers, goalAmount, daysLeft }) {
     const calculateRemainingDays = () => Math.max(daysLeft, 0);
