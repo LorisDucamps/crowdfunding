@@ -1,5 +1,6 @@
 import { twMerge } from "tailwind-merge";
 import React from "react";
+import Button from "../button/Button";
 
 export default function ModalList({
   pledges,
@@ -53,7 +54,9 @@ export default function ModalList({
                 <span className="absolute bg-verdigris w-3 h-3 rounded-full opacity-0 peer-checked:opacity-100 transition-opacity duration-200 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></span>
               </div>
               <div>
-                <h3 className="font-bold">{pledge.title}</h3>
+                <h3 className="text-sm font-commissionerBold">
+                  {pledge.title}
+                </h3>
                 {pledge.minPledge && (
                   <span className="text-sm text-verdigris">
                     Pledge ${pledge.minPledge} or more
@@ -72,7 +75,7 @@ export default function ModalList({
               </div>
             </div>
 
-            <p className="text-sonic-silver">{pledge.description}</p>
+            <p className="text-sm text-sonic-silver">{pledge.description}</p>
             <div className="block md:hidden text-sonic-silver text-sm">
               {pledge.amountLeft !== null && (
                 <>
@@ -85,21 +88,34 @@ export default function ModalList({
             </div>
           </label>
           {selectedPledgeId === pledge.id && pledge.amountLeft > 0 && (
-            <form className="mt-4 flex flex-col gap-4" onSubmit={handleSubmit}>
-              <input
-                type="number"
-                value={pledgeAmount}
-                onChange={(e) => setPledgeAmount(Number(e.target.value))}
-                placeholder={`Minimum ${pledge.minPledge}`}
-                min={pledge.minPledge}
-                className="border p-2 rounded w-full"
-              />
-              <button
-                type="submit"
-                className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-              >
-                Continue
-              </button>
+            <form
+              className="relative before:content-[''] before:absolute before:top-0 before:left-[-16px] before:right-[0] before:h-[1px] before:w-[calc(100%+32px)] before:bg-medium-black"
+              onSubmit={handleSubmit}
+            >
+              <div className="text-sm text-sonic-silver text-center">
+                Enter your pledge
+              </div>
+              <div className="flex justify-center items-center gap-4">
+                <div className="relative flex items-center border rounded-full px-4 py-2 focus-within:border-verdigris">
+                  <span className="text-gray-400 text-lg">$</span>
+                  <input
+                    type="number"
+                    value={pledgeAmount}
+                    onChange={(e) => setPledgeAmount(Number(e.target.value))}
+                    placeholder={`Minimum ${pledge.minPledge}`}
+                    min={pledge.minPledge}
+                    className="rounded bg-transparent border-none focus:outline-none max-w-14"
+                  />
+                </div>
+
+                <Button
+                  type="submit"
+                  className="text-sm"
+                  variant="primary"
+                  size="medium"
+                  wording="Continue"
+                />
+              </div>
             </form>
           )}
         </li>

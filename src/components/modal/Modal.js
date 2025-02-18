@@ -64,7 +64,7 @@ export default function Modal({
             <>
               <h2
                 id="modal-title"
-                className="text-lg font-bold mb-6 sm:text-2xl sm:mb-4"
+                className="text-lg font-commissionerBold mb-6 sm:text-2xl sm:mb-4"
               >
                 Back this project
               </h2>
