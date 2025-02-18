@@ -4,6 +4,7 @@ import {useState} from "react";
 import ProjectGoal from "@/components/projectGoal/ProjectGoal";
 import data from "../data/data.json";
 import ProjectAbout from "@/components/projectAbout/ProjectAbout";
+import Modal from "@/components/modal/Modal";
 
 export default function Home() {
 
@@ -44,6 +45,16 @@ export default function Home() {
 
     return (
         <>
+            {isModalOpen && (
+        <Modal
+          pledges={datas.pledges}
+          selectedPledge={selectedPledge}
+          isOpen={isModalOpen}
+          onCloseModal={handleCloseModal}
+          onUpdatePledge={handleUpdatePledge}
+        />
+      )}
+        
             <main className="px-6">
                 <div className="flex flex-col max-w-[730px] mx-auto gap-6 -mt-14 sm:-mt-[92px]">
                     <ProjectIntro/>
@@ -56,6 +67,5 @@ export default function Home() {
                 </div>
             </main>
         </>
-
     );
 }
