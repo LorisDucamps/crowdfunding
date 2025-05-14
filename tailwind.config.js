@@ -24,9 +24,7 @@ export default {
       },
     },
     fontFamily: {
-      commissionerRegular: ['commissionerRegular'],
-      commissionerMedium: ['commissionerMedium'],
-      commissionerBold: ['commissionerBold']
+      commissioner: ['var(--font-commissioner)']
     },
   },
   plugins: [],

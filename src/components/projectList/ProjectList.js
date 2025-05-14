@@ -1,7 +1,7 @@
 import React from "react";
 import ProjectItem from '../projectItem/ProjectItem';
 
-export default function ProjectList({ pledges, onOpenModal }) {
+export default function ProjectList({pledges, onOpenModal}) {
 
     if (!pledges || pledges.length === 0) {
         return <p>No pledges available.</p>;

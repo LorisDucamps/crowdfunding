@@ -8,7 +8,7 @@ export default function ProjectAbout({ pledges, onOpenModal }) {
 
   return (
     <Card>
-      <h2 className="text-lg font-commissionerBold mb-6 sm:text-xl sm:mb-9">
+      <h2 className="text-lg font-bold mb-6 sm:text-xl sm:mb-9">
         About this project
       </h2>
       <p className="text-sm leading-6 text-sonic-silver mb-9 sm:text-base sm:leading-8">

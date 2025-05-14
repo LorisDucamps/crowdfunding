@@ -22,7 +22,7 @@ export default function Header() {
                         "block",
                         isMobile
                             ? "text-lg p-6"
-                            : "text-white text-[13px] font-commissionerMedium hover:underline"
+                            : "text-white text-[13px] font-medium hover:underline"
                     )}
                 >
                     {label}

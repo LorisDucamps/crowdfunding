@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from "react";
+import React, {useState} from "react";
 import Card from "../card/Card";
 import Button from "../button/Button";
 
@@ -21,7 +21,7 @@ export default function ProjectIntro() {
                 width="56"
             />
 
-            <h1 className="text-xl font-commissionerBold text-center sm:text-[28px]">
+            <h1 className="text-xl font-bold text-center sm:text-[28px]">
                 Mastercraft Bamboo Monitor Riser
             </h1>
 

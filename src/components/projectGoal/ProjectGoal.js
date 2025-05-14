@@ -23,7 +23,7 @@ export default function ProjectGoal({
   const renderListItem = (value, label, isLast = false) => (
     <li className={isLast ? "" : listItemBaseClasses}>
       <dl>
-        <dt className="text-[32px] font-commissionerBold">{value}</dt>
+        <dt className="text-[32px] font-bold">{value}</dt>
         <dd className="text-sm text-sonic-silver sm:text-[15px]">{label}</dd>
       </dl>
     </li>

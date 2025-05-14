@@ -22,7 +22,7 @@ const Button = ({
     };
 
     const buttonClasses = twMerge(
-        "relative flex items-center font-commissionerBold text-base text-white rounded-full group/button",
+        "relative flex items-center font-bold text-base text-white rounded-full group/button",
         ButtonVariant[variant],
         ButtonSize[size],
         disabled && "opacity-50 cursor-not-allowed",

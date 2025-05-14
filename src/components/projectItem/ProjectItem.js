@@ -16,7 +16,7 @@ export default function ProjectItem({ pledge, onOpenModal }) {
     <div className={twMerge("mb-6 last:mb-0", isOutOfStock && "opacity-50")}>
       <Card extraClassName="border-medium-black">
         <div className="sm:flex sm:justify-between sm:items-center">
-          <h3 className="text-sm font-commissionerBold mb-2 sm:text-lg sm:mb-0">
+          <h3 className="text-sm font-bold mb-2 sm:text-lg sm:mb-0">
             {pledge.title}
           </h3>
           <p className="text-sm text-verdigris font-medium sm:text-[15px]">
@@ -30,7 +30,7 @@ export default function ProjectItem({ pledge, onOpenModal }) {
 
         <div className="sm:flex sm:justify-between sm:items-center">
           <div className="flex items-center gap-2 mb-6 sm:mb-0">
-            <span className="font-commissionerBold text-[32px]">
+            <span className="font-bold text-[32px]">
               {pledge.amountLeft}
             </span>
             <span className="text-[15px] text-sonic-silver">left</span>

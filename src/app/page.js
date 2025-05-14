@@ -28,33 +28,54 @@ export default function Home() {
     };
 
     const handleUpdatePledge = (updatedPledge) => {
+        if (!updatedPledge || typeof updatedPledge.pledgeId === 'undefined' || typeof updatedPledge.amount !== 'number') {
+            console.warn("handleUpdatePledge: données invalides", updatedPledge);
+            return;
+        }
+
         setGoalStats((prevStats) => ({
             totalAmount: prevStats.totalAmount + updatedPledge.amount,
             backers: prevStats.backers + 1,
         }));
 
-        setDatas((prevDatas) => ({
-            ...prevDatas,
-            pledges: prevDatas.pledges.map((pledge) =>
-                pledge.id === updatedPledge.pledgeId
-                    ? { ...pledge, amountLeft: pledge.amountLeft - 1 }
-                    : pledge
-            ),
-        }));
+        setDatas((prevDatas) => {
+            const pledgeExists = prevDatas.pledges.some(p => p.id === updatedPledge.pledgeId);
+            if (!pledgeExists) {
+                console.warn("handleUpdatePledge: pledge non trouvé", updatedPledge.pledgeId);
+                return prevDatas;
+            }
+
+            return {
+                ...prevDatas,
+                pledges: prevDatas.pledges.map((pledge) =>
+                    pledge.id === updatedPledge.pledgeId
+                        ? {
+                            ...pledge,
+                            amountLeft: Math.max(0, pledge.amountLeft - 1),
+                        }
+                        : pledge
+                ),
+            };
+        });
+    };
+
+
+    const renderModal = () => {
+        if (!isModalOpen) return null;
+        return (
+            <Modal
+                pledges={datas.pledges}
+                selectedPledge={selectedPledge}
+                isOpen={isModalOpen}
+                onCloseModal={handleCloseModal}
+                onUpdatePledge={handleUpdatePledge}
+            />
+        );
     };
 
     return (
         <>
-            {isModalOpen && (
-        <Modal
-          pledges={datas.pledges}
-          selectedPledge={selectedPledge}
-          isOpen={isModalOpen}
-          onCloseModal={handleCloseModal}
-          onUpdatePledge={handleUpdatePledge}
-        />
-      )}
-        
+            {renderModal()}
             <main className="px-6">
                 <div className="flex flex-col max-w-[730px] mx-auto gap-6 -mt-14 sm:-mt-[92px]">
                     <ProjectIntro/>
@@ -62,8 +83,8 @@ export default function Home() {
                         totalAmount={goalStats.totalAmount}
                         backers={goalStats.backers}
                         goalAmount={datas.general.goalAmount}
-                        daysLeft={datas.general.daysLeft} />
-                    <ProjectAbout pledges={datas.pledges} onOpenModal={handleOpenModal} />
+                        daysLeft={datas.general.daysLeft}/>
+                    <ProjectAbout pledges={datas.pledges} onOpenModal={handleOpenModal}/>
                 </div>
             </main>
         </>
