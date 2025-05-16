@@ -34,32 +34,35 @@ export default function Modal({
     return (
         <dialog
             open={isOpen}
-            className="fixed top-0 bottom-0 px-6 lg:px-0 z-30 content-center h-[calc(100%-100px)] overflow-y-auto before:content-[''] before:fixed before:inset-0 before:h-screen before:w-screen before:bg-black/[.5]"
+            className="fixed top-0 bottom-0 px-6 lg:px-0 z-30 content-center h-[calc(100%-125px)] overflow-y-auto before:content-[''] before:fixed before:inset-0 before:h-screen before:w-screen before:bg-black/[.5]"
             aria-labelledby="modal-title"
             role="dialog"
         >
             <Card extraClassName="relative max-w-[730px] mx-auto">
                 <div>
-                    <button
-                        onClick={onCloseModal}
-                        className="absolute top-[30px] right-[14px] p-4"
-                    >
-                        <svg
-                            width="16"
-                            height="16"
-                            viewBox="0 0 16 16"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="icon-close-modal"
+                    {!isSuccess && (
+                        <button
+                            onClick={onCloseModal}
+                            className="absolute top-[30px] right-[14px] p-4"
                         >
-                            <path
-                                fillRule="evenodd"
-                                clipRule="evenodd"
-                                d="M15.0708 3.75738L12.2424 0.928955L7.99978 5.1716L3.75714 0.928955L0.928711 3.75738L5.17135 8.00002L0.928711 12.2427L3.75714 15.0711L7.99978 10.8285L12.2424 15.0711L15.0708 12.2427L10.8282 8.00002L15.0708 3.75738Z"
-                                fill="#979797"
-                            />
-                        </svg>
-                    </button>
+                            <svg
+                                width="16"
+                                height="16"
+                                viewBox="0 0 16 16"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                                className="icon-close-modal"
+                            >
+                                <path
+                                    fillRule="evenodd"
+                                    clipRule="evenodd"
+                                    d="M15.0708 3.75738L12.2424 0.928955L7.99978 5.1716L3.75714 0.928955L0.928711 3.75738L5.17135 8.00002L0.928711 12.2427L3.75714 15.0711L7.99978 10.8285L12.2424 15.0711L15.0708 12.2427L10.8282 8.00002L15.0708 3.75738Z"
+                                    fill="#979797"
+                                />
+                            </svg>
+                        </button>
+                    )}
+
                     {!isSuccess ? (
                         <>
                             <h2

@@ -9,6 +9,7 @@
     {
       "id": 1,
       "title": "Pledge with no reward",
+      "minPledge": 0,
       "description": "Choose to support us without a reward if you simply believe in our project. As a backer, you will be signed up to receive product updates via email."
     },
     {
