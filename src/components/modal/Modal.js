@@ -21,6 +21,18 @@ export default function Modal({
         }
     }, [selectedPledge]);
 
+    useEffect(() => {
+        if (isOpen) {
+            document.body.classList.add("overflow-hidden");
+        } else {
+            document.body.classList.remove("overflow-hidden");
+        }
+
+        return () => {
+            document.body.classList.remove("overflow-hidden");
+        };
+    }, [isOpen]);
+
     const handleSubmitPledge = (updatedPledge) => {
         onUpdatePledge(updatedPledge);
         setIsSuccess(true);
@@ -34,7 +46,7 @@ export default function Modal({
     return (
         <dialog
             open={isOpen}
-            className="fixed top-0 bottom-0 px-6 lg:px-0 z-30 content-center h-[calc(100%-125px)] overflow-y-auto before:content-[''] before:fixed before:inset-0 before:h-screen before:w-screen before:bg-black/[.5]"
+            className="fixed top-0 bottom-0 px-6 lg:px-0 z-30 content-center h-[calc(100%)] w-auto before:content-[''] before:fixed before:inset-0 before:h-screen before:w-screen before:bg-black/[.5]"
             aria-labelledby="modal-title"
             role="dialog"
         >
@@ -75,14 +87,17 @@ export default function Modal({
                                 Want to support us in bringing Mastercraft Bamboo Monitor Riser
                                 out in the world?
                             </p>
-                            <ModalList
-                                pledges={pledges}
-                                selectedPledgeId={selectedPledgeId}
-                                onSelectPledge={setSelectedPledgeId}
-                                pledgeAmount={pledgeAmount}
-                                setPledgeAmount={setPledgeAmount}
-                                onSubmitPledge={handleSubmitPledge}
-                            />
+                            <div className="overflow-y-auto max-h-[calc(100vh-330px)]">
+                                <ModalList
+                                    pledges={pledges}
+                                    selectedPledgeId={selectedPledgeId}
+                                    onSelectPledge={setSelectedPledgeId}
+                                    pledgeAmount={pledgeAmount}
+                                    setPledgeAmount={setPledgeAmount}
+                                    onSubmitPledge={handleSubmitPledge}
+                                />
+                            </div>
+
                         </>
                     ) : (
                         <ModalSuccess onBackToHome={handleBackToHome}/>
